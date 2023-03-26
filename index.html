@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/music-solid.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/scss/style.scss" />
+    <!--Font awesome-->
+    <script
+      src="https://kit.fontawesome.com/81375295f3.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Music Player</title>
+  </head>
+  <body>
+    <audio controls id="music" preload="metadata">
+      <source src="" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <main class="music-player">
+      <div class="left-side">
+        <div class="infos">
+          <h1 class="album-title"></h1>
+          <h4 class="artist"></h4>
+          <p>Date de sortie : <i class="release-date"></i></p>
+          <div class="description"></div>
+        </div>
+        <div class="player">
+          <div class="controls">
+            <p>00 : 00</p>
+            <input class="duration" type="range" min="0" max="100" />
+            <p class="endtime"></p>
+          </div>
+          <div class="button-container">
+            <div class="container">
+              <button class="backward">
+                <i class="fa-solid fa-backward"></i>
+              </button>
+              <button class="play-pause">
+                <i class="fa-solid fa-play"></i>
+              </button>
+              <button class="forward">
+                <i class="fa-solid fa-forward"></i>
+              </button>
+            </div>
+            <div class="volume-container">
+              <i class="fa-solid fa-volume-low"></i>
+              <input class="volume" type="range" min="0" max="100" />
+              <i class="fa-solid fa-volume-high"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-side">
+        <img id="album-cover" src="" alt="Cover de l'album" />
+      </div>
+    </main>
+    <script type="module" src="/src/app.ts"></script>
+  </body>
+</html>
