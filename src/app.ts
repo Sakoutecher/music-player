@@ -18,6 +18,7 @@ const album_cover = <HTMLImageElement>document.querySelector('#album-cover')
 const duration = <HTMLInputElement>document.querySelector('.duration')
 const volume = <HTMLInputElement>document.querySelector('.volume')
 const endtime = <HTMLParagraphElement>document.querySelector('.endtime')
+const starttime = <HTMLParagraphElement>document.querySelector('.starttime')
 const music = <HTMLAudioElement>document.querySelector('#music')
 
 /**Variables */
@@ -53,12 +54,15 @@ initProject(index)
 music.onloadedmetadata = (): void => {
   const splitDuration = (music.duration / 60).toFixed(2).split('.')
   endtime.innerHTML = '0' + splitDuration[0] + ' : ' + splitDuration[1]
+  starttime.innerHTML = '00 : 00'
 }
 
 /**When the time of the music change update the music slider */
 music.ontimeupdate = (): void => {
   if (music.currentTime) {
     duration.value = ((music.currentTime / music.duration) * 100).toString()
+    const splitStartTime = (music.currentTime / 60).toFixed(2).split('.')
+    starttime.innerHTML = '0' + splitStartTime[0] + ' : ' + splitStartTime[1]
   }
 }
 
